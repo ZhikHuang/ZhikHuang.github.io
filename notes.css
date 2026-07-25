@@ -69,22 +69,14 @@ a { color: inherit; text-decoration: none; }
   color: var(--mint);
   transform: translateY(-1px);
 }
-.header-cv {
-  padding: 10px 15px;
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-}
 
 .notes-hero {
   position: relative;
-  min-height: 580px;
+  min-height: 480px;
   overflow: hidden;
-  padding: 170px max(32px, calc((100vw - 1240px) / 2)) 96px;
+  padding: 150px max(32px, calc((100vw - 1240px) / 2)) 82px;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  align-items: end;
-  gap: 80px;
+  place-items: center;
   background:
     radial-gradient(circle at 78% 30%, rgba(53, 185, 172, 0.2), transparent 25%),
     linear-gradient(145deg, #173c49, #0b2733 70%, #081d26);
@@ -101,6 +93,10 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-copy,
 .archive-summary { position: relative; z-index: 1; }
+.hero-copy {
+  width: min(100%, 760px);
+  text-align: center;
+}
 .eyebrow {
   display: flex;
   align-items: center;
@@ -111,6 +107,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 800;
   letter-spacing: 0.17em;
   text-transform: uppercase;
+  justify-content: center;
 }
 .eyebrow span {
   width: 7px;
@@ -122,56 +119,43 @@ a { color: inherit; text-decoration: none; }
 .hero-copy h1 {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(70px, 9vw, 122px);
+  font-size: clamp(48px, 6vw, 76px);
   font-weight: 500;
-  letter-spacing: -0.065em;
-  line-height: 0.82;
+  letter-spacing: -0.045em;
+  line-height: 1;
 }
-.hero-copy h1 em {
-  color: var(--mint);
-  font-weight: 400;
-}
-.hero-copy > p:last-child {
+.hero-description {
   max-width: 620px;
-  margin: 40px 0 0;
+  margin: 28px auto 0;
   color: rgba(255, 255, 255, 0.64);
   font-size: 14px;
   line-height: 1.85;
 }
 .archive-summary {
-  justify-self: end;
-  width: min(100%, 360px);
-  padding: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.04);
-}
-.summary-index {
-  display: block;
-  color: var(--mint);
-  font-family: Georgia, serif;
-  font-size: 13px;
-}
-.archive-summary div {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  margin-top: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 34px;
+  padding: 13px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(255, 255, 255, 0.57);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 .archive-summary strong {
+  color: var(--mint);
   font-family: Georgia, serif;
-  font-size: 64px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 500;
 }
-.archive-summary div span,
-.archive-summary p {
-  color: rgba(255, 255, 255, 0.57);
-  font-size: 11px;
-  letter-spacing: 0.05em;
-}
-.archive-summary p {
-  margin: 26px 0 0;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+.summary-divider {
+  width: 1px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .notes-section {
@@ -297,20 +281,6 @@ a { color: inherit; text-decoration: none; }
   font-size: 12px;
   line-height: 1.8;
 }
-.note-topics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-top: 24px;
-}
-.note-topics span {
-  padding: 7px 9px;
-  border: 1px solid var(--line);
-  font-size: 8px;
-  font-weight: 750;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
 .pdf-link {
   display: inline-flex;
   min-height: 46px;
@@ -354,12 +324,8 @@ a:focus-visible {
 }
 
 @media (max-width: 800px) {
-  .notes-hero,
   .section-heading {
     grid-template-columns: 1fr;
-  }
-  .archive-summary {
-    justify-self: start;
   }
   .note-card {
     grid-template-columns: 1fr;
@@ -380,11 +346,15 @@ a:focus-visible {
   }
   .notes-header nav { gap: 16px; }
   .notes-hero {
-    min-height: 650px;
-    padding: 132px 20px 72px;
+    min-height: 470px;
+    padding: 128px 20px 68px;
   }
-  .hero-copy h1 { font-size: 68px; }
-  .archive-summary { width: 100%; }
+  .hero-copy h1 { font-size: 48px; }
+  .archive-summary {
+    width: 100%;
+    gap: 12px;
+    padding: 12px;
+  }
   .notes-section { padding: 80px 20px 96px; }
   .section-heading { gap: 22px; margin-bottom: 48px; }
   .subject-heading { grid-template-columns: 36px 1fr; }
